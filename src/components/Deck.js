@@ -7,8 +7,16 @@ import data from "../data.js";
 
 import "../styles/Deck.css";
 const test = new Set();
+const movieGenres = [];
 function left(data){};
-function right(data){test.add(data)};
+function right(i, cards){
+  let genres = cards[i].props.data[i].genre
+  genres.forEach(genre =>
+    //test.add(genre)
+    keepScore(genre)
+  )
+  
+}
 const to = i => ({
   x: 0,
   y: i * -10,
@@ -21,6 +29,71 @@ const from = i => ({ rot: 0, scale: 1.5, y: -1000 });
 const trans = (r, s) =>
   `perspective(1500px) rotateX(30deg) rotateY(${r /
     10}deg) rotateZ(${r}deg) scale(${s})`;
+
+let scores = {'action':0,'adventure':0,'sciFi':0,'comedy':0,'drama':0}
+
+function keepScore(genre){
+  if (genre === 'Action'){
+    scores['action'] = scores['action'] + 1
+  }
+  if (genre === 'Adventure'){
+    scores['adventure'] = scores['adventure'] + 1
+  }
+  if (genre === 'Sci-Fi'){
+    scores['sciFi'] = scores['sciFi'] + 1
+  }
+  if (genre === 'Comedy'){
+    scores['comedy'] = scores['comedy'] + 1
+  }
+  if (genre === 'Drama'){
+    scores['drama'] = scores['drama'] + 1
+  }
+}
+
+function findMax(arr){
+  //let scores = {'action':0,'adventure':0,'sciFi':0,'comedy':0,'drama':0}
+  /*
+  arr.forEach(genre => {
+    if (genre === 'action'){
+      action = action + 1
+    }
+  }
+  */
+  console.log(arr[3])
+  for (var i = 0; i < arr.length; i++) { 
+    if (arr[i] === 'Action'){
+      scores['action'] = scores['action'] + 1
+    }
+    if (arr[i] === 'Adventure'){
+      scores['adventure'] = scores['adventure'] + 1
+    }
+    if (arr[i] === 'Sci-Fi'){
+      scores['sciFi'] = scores['sciFi'] + 1
+    }
+    if (arr[i] === 'Comedy'){
+      scores['comedy'] = scores['comedy'] + 1
+    }
+    if (arr[i] === 'Drama'){
+      scores['drama'] = scores['drama'] + 1
+    }
+  }
+}
+
+function releaseScore(){
+  let maxGenre = ""
+  let max = 0
+  for (var key in scores){
+    //let stringMsg = key + ":" + scores[key]
+    //alert(stringMsg)
+    if (scores[key] > max){
+      maxGenre = key
+      max = scores[key]
+    }
+  }
+
+  let stringMsg = "Your favourite Genre:" + maxGenre
+  alert(stringMsg)
+}
 
 function Deck() {
   const [gone] = useState(() => new Set());
@@ -44,7 +117,7 @@ function Deck() {
       const dir = xDir < 0 ? -1 : 1;
 
       if (!down && trigger){
-        dir === -1 ? left(index) : right(index);
+        dir === -1 ? left(index) : right(index, cards);
         gone.add(index);
       }
       set(i => {
@@ -66,8 +139,11 @@ function Deck() {
       });
 
       if (!down && gone.size === data.length){
-        console.log(test)
-        test.forEach(i => alert(cards[i].props.data[i].genre))
+        //console.log(test)
+        //findMax(test)
+        releaseScore()
+        //alert(popular)
+        //test.forEach(i => alert(cards[i].props.data[i].genre))
         //alert(max(test))
         //alert(cards[1].props.data[1].name);
         //setTimeout(() => gone.clear() || set(i => to(i)), 600);
