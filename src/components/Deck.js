@@ -6,6 +6,8 @@ import Card from "./Card";
 import data from "../data.js";
 
 import "../styles/Deck.css";
+import { longStackSupport } from "q";
+let finish = false
 const test = new Set();
 const movieGenres = [];
 function left(data){};
@@ -91,11 +93,16 @@ function releaseScore(){
     }
   }
 
-  let stringMsg = "Your favourite Genre:" + maxGenre
-  alert(stringMsg)
+  let stringMsg = "<div id='result'><img href=\"logo.png\" /><h1>Your favourite Genre: " + maxGenre + " </h1></div>"
+  //alert(stringMsg)
+  //const result = () => stringMsg;
+  return stringMsg
+  //alert(stringMsg)
 }
 
 function Deck() {
+  var score;
+  var returnVal;
   const [gone] = useState(() => new Set());
 
   const [props, set] = useSprings(data.length, i => ({
@@ -141,11 +148,10 @@ function Deck() {
       if (!down && gone.size === data.length){
         //console.log(test)
         //findMax(test)
-        releaseScore()
+        score = releaseScore()
+        document.getElementById("root").innerHTML = score
+        document.getElementById("next").innerHTML = "<h1>Score is 5 </h1>"
         //alert(popular)
-        //test.forEach(i => alert(cards[i].props.data[i].genre))
-        //alert(max(test))
-        //alert(cards[1].props.data[1].name);
         //setTimeout(() => gone.clear() || set(i => to(i)), 600);
 
     }}
@@ -172,8 +178,20 @@ function Deck() {
   console.log(gone)
   console.log("test")
   console.log(test)
-  return cards;
+  
+  if (finish === true){
+    alert(score)
+    returnVal = "hi"
+  }
+  else{
+    returnVal = cards
+  }
+  return returnVal;
+  
+  
 }
+
+
 
 export default Deck;
 console.log("I GOT HERE")
