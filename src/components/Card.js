@@ -6,7 +6,7 @@ import Carousel from "nuka-carousel";
 class Card extends React.Component {
   render() {
     const { i, x, y, rot, scale, trans, bind, data } = this.props;
-    const { name, genre, director, text, pics } = data[i];
+    const { name, text, pics } = data[i];
 
     return (
       <animated.div
