@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useSprings } from "react-spring/hooks";
 import { useGesture } from "react-with-gesture";
+//var Spinner = require('react-spinkit');
+import Spinner from "react-spinkit";
+import ReactDOM from "react-dom";
 
 import Card from "./Card";
-import data from "../data.js";
-
+import data from "../kidsMovies";
 import "../styles/Deck.css";
 import { longStackSupport } from "q";
 let finish = false
@@ -32,72 +34,63 @@ const trans = (r, s) =>
   `perspective(1500px) rotateX(30deg) rotateY(${r /
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
-let scores = {'action':0,'adventure':0,'sciFi':0,'comedy':0,'drama':0}
+let scores = {'Action':0,'Adventure':0,'SciFi':0,'Comedy':0,'Drama':0}
 
 function keepScore(genre){
   if (genre === 'Action'){
-    scores['action'] = scores['action'] + 1
+    scores['Action'] = scores['Action'] + 1
   }
   if (genre === 'Adventure'){
-    scores['adventure'] = scores['adventure'] + 1
+    scores['Adventure'] = scores['Adventure'] + 1
   }
   if (genre === 'Sci-Fi'){
     scores['sciFi'] = scores['sciFi'] + 1
   }
   if (genre === 'Comedy'){
-    scores['comedy'] = scores['comedy'] + 1
+    scores['Comedy'] = scores['Comedy'] + 1
   }
   if (genre === 'Drama'){
-    scores['drama'] = scores['drama'] + 1
-  }
-}
-
-function findMax(arr){
-  //let scores = {'action':0,'adventure':0,'sciFi':0,'comedy':0,'drama':0}
-  /*
-  arr.forEach(genre => {
-    if (genre === 'action'){
-      action = action + 1
-    }
-  }
-  */
-  console.log(arr[3])
-  for (var i = 0; i < arr.length; i++) { 
-    if (arr[i] === 'Action'){
-      scores['action'] = scores['action'] + 1
-    }
-    if (arr[i] === 'Adventure'){
-      scores['adventure'] = scores['adventure'] + 1
-    }
-    if (arr[i] === 'Sci-Fi'){
-      scores['sciFi'] = scores['sciFi'] + 1
-    }
-    if (arr[i] === 'Comedy'){
-      scores['comedy'] = scores['comedy'] + 1
-    }
-    if (arr[i] === 'Drama'){
-      scores['drama'] = scores['drama'] + 1
-    }
+    scores['Drama'] = scores['Drama'] + 1
   }
 }
 
 function releaseScore(){
+  let totalScores = 0
   let maxGenre = ""
   let max = 0
+  let secondBest = ""
+  let secondMax = ""
   for (var key in scores){
-    //let stringMsg = key + ":" + scores[key]
-    //alert(stringMsg)
+    totalScores = totalScores + scores[key]
     if (scores[key] > max){
       maxGenre = key
       max = scores[key]
     }
   }
 
-  let stringMsg = "<div id='result'><img href=\"logo.png\" /><h1>Your favourite Genre: " + maxGenre + " </h1></div>"
+  for (var key in scores){
+    if (scores[key] > secondMax && key != maxGenre){
+      secondBest = key
+      secondMax = scores[key]
+    }
+  }
+
+
+  max = (max*100)/totalScores
+  secondMax = (secondMax*100)/totalScores
+
+  let stringMsg = "<h4>Your favourite Genre: " + maxGenre + " (Score: " + max + "%), but you also like " + secondBest + " (Score: " + secondMax + "%)</h4>"
   //alert(stringMsg)
   //const result = () => stringMsg;
   return stringMsg
   //alert(stringMsg)
+}
+
+function showResult(score){
+  document.getElementById("resultText").innerHTML = score
+  document.getElementById("root").style.visibility = "hidden";
+  document.getElementById("spin").style.display = "none";
+  document.getElementById("result").style.display = "block";
 }
 
 function Deck() {
@@ -146,15 +139,18 @@ function Deck() {
       });
 
       if (!down && gone.size === data.length){
-        //console.log(test)
-        //findMax(test)
-        score = releaseScore()
-        document.getElementById("root").innerHTML = score
-        document.getElementById("next").innerHTML = "<h1>Score is 5 </h1>"
+        let spin = <Spinner name="line-scale-party" color="#f38b00" fadeIn="half"/>
+        document.getElementById("root").style.visibility = "hidden";
+        ReactDOM.render(spin, document.getElementById("spinner"));
+        document.getElementById("spin").style.display = "block";
+        score = releaseScore();
+        //setTimeout(showResult(score), 60000);
+        setTimeout(() => showResult(score), 4000);
         //alert(popular)
         //setTimeout(() => gone.clear() || set(i => to(i)), 600);
 
     }}
+  
   );
 
   var cards = props.map(({ x, y, rot, scale, name }, i) => (
