@@ -7,7 +7,8 @@ export default [
     genre: [
       "Adventure",
       "Sports"
-    ]
+    ],
+    text: "A hot-shot race-car named Lightning McQueen gets waylaid in Radiator Springs, where he finds the true meaning of friendship and family."
   },
   {
     pics: [
@@ -17,7 +18,8 @@ export default [
     genre: [
       "Adventure",
       "Comedy"
-    ]
+    ],
+    text: "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room."
   },
   {
     pics: [
@@ -27,7 +29,8 @@ export default [
     genre: [
       "Animation",
       "Comedy"
-    ]
+    ],
+    text: "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home."
   },
   {
     pics: [
@@ -37,7 +40,8 @@ export default [
     genre: [
       "Drama",
       "Comedy"
-    ]
+    ],
+    text: "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery."
   },
   {
     pics: [
@@ -47,7 +51,8 @@ export default [
     genre: [
       "Adventure",
       "Comedy"
-    ]
+    ],
+    text: "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, 2 monsters realize things may not be what they think."
   },
   {
     pics: [
@@ -57,7 +62,8 @@ export default [
     genre: [
       "Adventure",
       "Comedy"
-    ]
+    ],
+    text: "When the newly-crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition."
   },
   {
     pics: [
@@ -68,7 +74,8 @@ export default [
       "Adventure",
       "Animation",
       "Comedy"
-    ]
+    ],
+    text: "When a criminal mastermind uses a trio of orphan girls as pawns for a grand scheme, he finds their love is profoundly changing him for the better."
   },
   {
     pics: [
@@ -78,7 +85,8 @@ export default [
     genre: [
       "Fantasy",
       "Animation"
-    ]
+    ],
+    text: "A mermaid princess makes a Faustian bargain in an attempt to become human and win a human prince's love."
   },
   {
     pics: [
@@ -88,7 +96,8 @@ export default [
     genre: [
       "Adventure",
       "Animation"
-    ]
+    ],
+    text: "Seventy-eight year old Carl Fredricksen travels to Paradise Falls in his home equipped with balloons, inadvertently taking a young stowaway."
   },
   {
     pics: [
@@ -98,7 +107,8 @@ export default [
     genre: [
       "Adventure",
       "Family"
-    ]
+    ],
+    text: "A selfish prince is cursed to become a monster for the rest of his life, unless he learns to fall in love with a beautiful young woman he keeps prisoner."
   },
   {
     pics: [
@@ -108,7 +118,8 @@ export default [
     genre: [
       "Adventure",
       "Comedy"
-    ]
+    ],
+    text: "In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind."
   },
   {
     pics: [
@@ -119,7 +130,8 @@ export default [
       "Adventure",
       "Animation",
       "Comedy"
-    ]
+    ],
+    text: "A mean lord exiles fairytale creatures to the swamp of a grumpy ogre, who must go on a quest and rescue a princess for the lord in order to get his land back."
   },
   {
     pics: [
@@ -130,7 +142,8 @@ export default [
       "Adventure",
       "Animation",
       "Comedy"
-    ]
+    ],
+    text: "Set during the Ice Age, a sabertooth tiger, a sloth, and a wooly mammoth find a lost human infant, and they try to return him to his tribe."
   },
   {
     pics: [
@@ -141,7 +154,8 @@ export default [
       "Drama",
       "Animation",
       "Comedy"
-    ]
+    ],
+    text: "A rat who can cook makes an unusual alliance with a young kitchen worker at a famous restaurant."
   },
   {
     pics: [
@@ -150,6 +164,7 @@ export default [
     name: "Harry Potter",
     genre: [
       "Adventure"
-    ]
+    ],
+    text: "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world."
   }
 ];
