@@ -29,6 +29,9 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <style>
+      body{
+        color: #f38b00;
+      }
       #result{
         color: #f38b00;
         margin: 10em;
@@ -37,8 +40,86 @@
         display: block;
       }
 
+      #root{
+        visibility: hidden;
+      }
+
+      #next{
+        visibility: visible;
+      }
+
+      #result{
+        display: none;
+      }
+
+      #spin{
+        display: none;
+      }
+
+      #next, #result{
+        text-align: center;
+        margin-bottom: 20em;
+        margin-top: 10em;
+        color:#f38b00;
+      }
+
+      #next p{
+        padding-left: 10em;
+        padding-right: 10em;
+      }
+
+      #spin{
+        text-align: center;
+        margin: 20em;
+      }
+
+      #result p{
+        padding-left: 5em;
+        padding-right: 5em;
+      }
+    
+      #logo{
+        height: 10em;
+        width: 18em;
+      }
+
     </style>
-    <div id="next"></div>
+    <div id="spin">
+      <div id="spinner"></div>
+      <p><em>Loading Results...</em></p>
+    </div>
+    <div id="result">
+        <img id="logo" src="https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F445995%2Fworkday-logo-clouds.png&w=700&op=resize" />
+        <h1>Congratulations!</h1>
+        <p id="resultText"></p>
+        <p>Thank you for playing the game. If you would like to learn about how this game works, feel free to ask one of our reps.</p>
+        <button id="refresh" onClick="document.location.reload(true)">Finish</button>
+    </div>
+    <div id="next">
+      <img id="logo" src="https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F445995%2Fworkday-logo-clouds.png&w=700&op=resize" />
+      <h1>Guess the Genre</h1>
+      <p>
+        This is a game that uses deep learning and neural networks to guess your favourite movie
+        genre based on what types of movies you like and dislike.
+      </p>
+      <p>
+        Swipe RIGHT (--->) if you like a movie.
+      </p>
+      <p>
+          Swipe LEFT (<---) if you dislike a movie.
+      </p>
+      <p>When you are finished, the machine will recommend a movie genre for you based on your choices.</p>
+      <p>Enjoy!</p>
+      <button id="submit">GO</button>
+      <script>
+          document.getElementById("submit").onclick = function() {myFunction()};
+          
+          function myFunction() {
+            document.getElementById("root").style.visibility = "visible";
+            document.getElementById("next").style.visibility = "hidden";
+          }
+          </script>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
