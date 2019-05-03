@@ -5,8 +5,8 @@ export default [
       ,
       name: "Cars",
       genre: [
-        "Adventure",
-        "Sports"
+        "Sports",
+        "Action"
       ],
       text: "A hot-shot race-car named Lightning McQueen gets waylaid in Radiator Springs, where he finds the true meaning of friendship and family."
     },
@@ -39,7 +39,6 @@ export default [
       name: "The Lion King",
       genre: [
         "Drama",
-        "Comedy"
       ],
       text: "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery."
     },
@@ -49,8 +48,7 @@ export default [
       ,
       name: "Monsters Inc",
       genre: [
-        "Adventure",
-        "Comedy"
+        "Adventure"
       ],
       text: "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, 2 monsters realize things may not be what they think."
     },
@@ -60,8 +58,7 @@ export default [
       ,
       name: "Frozen",
       genre: [
-        "Adventure",
-        "Comedy"
+        "Fantasy"
       ],
       text: "When the newly-crowned Queen Elsa accidentally uses her power to turn things into ice to curse her home in infinite winter, her sister Anna teams up with a mountain man, his playful reindeer, and a snowman to change the weather condition."
     },
@@ -71,7 +68,6 @@ export default [
       ,
       name: "Despicable Me",
       genre: [
-        "Adventure",
         "Animation",
         "Comedy"
       ],
@@ -95,7 +91,8 @@ export default [
       name: "Up",
       genre: [
         "Adventure",
-        "Animation"
+        "Animation",
+        "Drama"
       ],
       text: "Seventy-eight year old Carl Fredricksen travels to Paradise Falls in his home equipped with balloons, inadvertently taking a young stowaway."
     },
@@ -105,8 +102,7 @@ export default [
       ,
       name: "Beauty and the Beast",
       genre: [
-        "Adventure",
-        "Family"
+        "Fantasy",
       ],
       text: "A selfish prince is cursed to become a monster for the rest of his life, unless he learns to fall in love with a beautiful young woman he keeps prisoner."
     },
@@ -127,9 +123,9 @@ export default [
       ,
       name: "Shrek",
       genre: [
-        "Adventure",
         "Animation",
-        "Comedy"
+        "Comedy",
+        "Drama"
       ],
       text: "A mean lord exiles fairytale creatures to the swamp of a grumpy ogre, who must go on a quest and rescue a princess for the lord in order to get his land back."
     },
@@ -152,7 +148,6 @@ export default [
       name: "Ratatouille",
       genre: [
         "Drama",
-        "Animation",
         "Comedy"
       ],
       text: "A rat who can cook makes an unusual alliance with a young kitchen worker at a famous restaurant."
@@ -163,7 +158,8 @@ export default [
       ,
       name: "Harry Potter",
       genre: [
-        "Adventure"
+        "Adventure",
+        "Drama"
       ],
       text: "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world."
     }

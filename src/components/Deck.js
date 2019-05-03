@@ -8,10 +8,8 @@ import ReactDOM from "react-dom";
 import Card from "./Card";
 import data from "../kidsMovies";
 import "../styles/Deck.css";
-import { longStackSupport } from "q";
 let finish = false
 const test = new Set();
-const movieGenres = [];
 function left(data){};
 function right(i, cards){
   let genres = cards[i].props.data[i].genre
@@ -34,7 +32,8 @@ const trans = (r, s) =>
   `perspective(1500px) rotateX(30deg) rotateY(${r /
     10}deg) rotateZ(${r}deg) scale(${s})`;
 
-let scores = {'Action':0,'Adventure':0,'SciFi':0,'Comedy':0,'Drama':0}
+let scores = {'Action':0,'Adventure':0,'Fantasy':0,'Comedy':0,'Drama':0}
+let movieRecs = {'Action': ['The Incredibles'], 'Adventure': ['The Jungle Book', 'The Lego Movie', 'Zootopia', 'Finding Dory'], 'Fantasy': ['The Chronicles of Narnia'], 'Comedy':['Ice Age'], 'Drama':['Free Willy']}
 
 function keepScore(genre){
   if (genre === 'Action'){
@@ -43,8 +42,8 @@ function keepScore(genre){
   if (genre === 'Adventure'){
     scores['Adventure'] = scores['Adventure'] + 1
   }
-  if (genre === 'Sci-Fi'){
-    scores['sciFi'] = scores['sciFi'] + 1
+  if (genre === 'Fantasy'){
+    scores['Fantasy'] = scores['Fantasy'] + 1
   }
   if (genre === 'Comedy'){
     scores['Comedy'] = scores['Comedy'] + 1
@@ -68,18 +67,28 @@ function releaseScore(){
     }
   }
 
-  for (var key in scores){
-    if (scores[key] > secondMax && key != maxGenre){
-      secondBest = key
-      secondMax = scores[key]
+  for (var seckey in scores){
+    if (scores[seckey] > secondMax && seckey !== maxGenre){
+      secondBest = seckey
+      secondMax = scores[seckey]
     }
   }
 
+  var movieRec
+  let ranNum = Math.floor((Math.random() * 3) + 0)
+  let movieRecGenre = movieRecs[maxGenre]
+  if (maxGenre === "Adventure"){
+    movieRec = movieRecGenre[ranNum]
+  }
+  else{
+    movieRec = movieRecGenre[0]
+  }
 
-  max = (max*100)/totalScores
-  secondMax = (secondMax*100)/totalScores
 
-  let stringMsg = "<h4>Your favourite Genre: " + maxGenre + " (Score: " + max + "%), but you also like " + secondBest + " (Score: " + secondMax + "%)</h4>"
+  max = parseInt((max*100)/totalScores)
+  secondMax = parseInt((secondMax*100)/totalScores)
+
+  let stringMsg = "<h4>Your favourite Genre: " + maxGenre + " (" + max + "% Match), but you also like " + secondBest + " (" + secondMax + "% Match)</h4><h4> A movie you would enjoy: " + movieRec + "</h4>"
   //alert(stringMsg)
   //const result = () => stringMsg;
   return stringMsg
@@ -141,6 +150,8 @@ function Deck() {
       if (!down && gone.size === data.length){
         let spin = <Spinner name="line-scale-party" color="#f38b00" fadeIn="half"/>
         document.getElementById("root").style.visibility = "hidden";
+        document.getElementById("green-thumb").style.display = "none";
+        document.getElementById("red-thumb").style.display = "none";
         ReactDOM.render(spin, document.getElementById("spinner"));
         document.getElementById("spin").style.display = "block";
         score = releaseScore();

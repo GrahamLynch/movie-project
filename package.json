@@ -1,8 +1,10 @@
 {
-  "name": "tinder-cards",
+  "name": "react-movies",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://davidfox11.github.io/movie-project",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "nuka-carousel": "^4.4.7",
     "prop-types": "^15.7.2",
     "react": "16.7.0-alpha.0",
@@ -16,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+   "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

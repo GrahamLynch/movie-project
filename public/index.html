@@ -27,7 +27,9 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+    </div>
+
     <style>
       body{
         color: #f38b00;
@@ -66,6 +68,7 @@
       #next p{
         padding-left: 10em;
         padding-right: 10em;
+        font-size: 150%;
       }
 
       #spin{
@@ -74,8 +77,9 @@
       }
 
       #result p{
-        padding-left: 5em;
-        padding-right: 5em;
+        padding-left: 2em;
+        padding-right: 2em;
+        font-size: 130%;
       }
     
       #logo{
@@ -83,7 +87,35 @@
         width: 18em;
       }
 
+      #green-thumb{
+        float: right;
+        margin-top: 75%;
+        width: 150px;
+        height: 5px;
+      }
+
+      #red-thumb{
+        float: left;
+        margin-top: 75%;
+        width: 150px;
+        height: 5px;
+      }
+      
+
+      button{
+        padding: 1em 3em 1em 3em;
+        border-radius: 2em;
+        border-color: #319c4c;
+        background-color: #319c4c;
+      }
+
     </style>
+    <div id=green-thumb>
+        <img src="green.png" />
+      </div>
+      <div id=red-thumb>
+          <img src="red.png" />
+        </div>
     <div id="spin">
       <div id="spinner"></div>
       <p><em>Loading Results...</em></p>
@@ -99,16 +131,12 @@
       <img id="logo" src="https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F445995%2Fworkday-logo-clouds.png&w=700&op=resize" />
       <h1>Guess the Genre</h1>
       <p>
-        This is a game that uses deep learning and neural networks to guess your favourite movie
-        genre based on what types of movies you like and dislike.
+        Swipe RIGHT (in the direction of the green arrow) if you like a movie.
       </p>
       <p>
-        Swipe RIGHT (--->) if you like a movie.
+          Swipe LEFT (in the direction of the red arrow) if you dislike a movie.
       </p>
-      <p>
-          Swipe LEFT (<---) if you dislike a movie.
-      </p>
-      <p>When you are finished, the machine will recommend a movie genre for you based on your choices.</p>
+      <p>When you are finished, the machine will recommend a movie for you based on your choices.</p>
       <p>Enjoy!</p>
       <button id="submit">GO</button>
       <script>
