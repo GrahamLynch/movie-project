@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import Deck from "./components/Deck";
-import Result from "./components/Result";
 
 const App = () => <Deck />;
 /*
